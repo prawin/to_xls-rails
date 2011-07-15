@@ -14,6 +14,8 @@ class Array
     else
       columns = self.first.class.column_names.map(&:to_sym) - Array(options[:except]).map(&:to_sym)
     end
+    
+    columns += Array(options[:methods])
 
     return '' if columns.empty?
 
